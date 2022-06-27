@@ -3,6 +3,8 @@ FROM python:3.9-slim-buster
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE 1
 
+RUN apt update
+RUN apt install --reinstall -y libpq-dev
 
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r /app/requirements.txt \
